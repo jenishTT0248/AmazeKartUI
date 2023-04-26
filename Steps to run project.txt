@@ -1,0 +1,13 @@
+https://github.com/altence/lightence-ant-design-react-template
+https://lightence-ant-design-react-template.pages.dev/medical-dashboard
+
+1.Install yarn globally : npm install -g yarn
+2.Install yarn dependencies in project: yarn install (If you face any issue then again try this command)
+3.Run project: yarn start
+
+
+Production mode
+- yarn install 
+- yarn build
+
+
