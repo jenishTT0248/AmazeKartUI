@@ -115,6 +115,7 @@
   "common": {
     "address": "Address",
     "advancedForms": "Advanced Forms",
+    "paymentDetails": "Payment Details",
     "age": "Age",
     "alert": "Alert",
     "apps": "Apps",

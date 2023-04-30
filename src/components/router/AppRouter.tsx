@@ -16,6 +16,7 @@ import RequireAuth from '@app/components/router/RequireAuth';
 import { withLoading } from '@app/hocs/withLoading.hoc';
 import NftDashboardPage from '@app/pages/DashboardPages/NftDashboardPage';
 import MedicalDashboardPage from '@app/pages/DashboardPages/MedicalDashboardPage';
+import PaymentGrid from '../forms/PaymentDetail/PaymentGrid';
 
 const NewsFeedPage = React.lazy(() => import('@app/pages/NewsFeedPage'));
 const DataTablesPage = React.lazy(() => import('@app/pages/DataTablesPage'));
@@ -136,6 +137,9 @@ export const AppRouter: React.FC = () => {
           </Route>
           <Route path="forms">
             <Route path="advanced-forms" element={<AdvancedForm />} />
+          </Route>
+          <Route path="payment">
+          <Route path="payment-detail" element={<PaymentGrid />} />
           </Route>
           <Route path="data-tables" element={<DataTables />} />
           <Route path="charts" element={<Charts />} />

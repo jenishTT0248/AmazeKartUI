@@ -9,6 +9,7 @@ import {
   TableOutlined,
   UserOutlined,
   BlockOutlined,
+  CreditCardOutlined,
 } from '@ant-design/icons';
 import { ReactComponent as NftIcon } from '@app/assets/icons/nft-icon.svg';
 
@@ -92,6 +93,18 @@ export const sidebarNavigation: SidebarNavigationItem[] = [
         title: 'common.advancedForms',
         key: 'advanced-forms',
         url: '/forms/advanced-forms',
+      },
+    ],
+  },
+   {
+    title: 'common.payment',
+    key: 'payment',
+    icon: <CreditCardOutlined />,
+    children: [
+      {
+        title: 'common.paymentDetails',
+        key: 'payment-details',
+        url: '/payment/payment-detail',
       },
     ],
   },
