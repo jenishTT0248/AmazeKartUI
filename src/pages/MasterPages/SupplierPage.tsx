@@ -7,6 +7,7 @@ import { BaseRow } from '@app/components/common/BaseRow/BaseRow';
 import { BaseCol } from '@app/components/common/BaseCol/BaseCol';
 import { BaseSpace } from '@app/components/common/BaseSpace/BaseSpace';
 import { BaseModal } from '@app/components/common/BaseModal/BaseModal';
+import { notificationController } from 'controllers/notificationController';
 
 import { DeleteOutlined, EditOutlined } from '@ant-design/icons';
 import useSupplierService from '../../hooks/custom/useSupplierService';
@@ -74,10 +75,8 @@ const SupplierPage: React.FC = () => {
     }).then(async (result: any) => {
       if (result.isConfirmed) {
         await deleteAction({ supplierId: id });
-        {
-          /* notificationController.info({ message: t('tables.inviteMessage', { name: record.name }) }) */
-        }
         getAll();
+        notificationController.success({ message: 'Supplier deleted successfully' });
       }
     });
   };
@@ -155,6 +154,9 @@ const SupplierPage: React.FC = () => {
     form.resetFields();
     setSupplierId(0);
     setIsBasicModalOpen(false);
+
+    if (supplierId === 0) notificationController.success({ message: 'Supplier created successfully' });
+    else notificationController.success({ message: 'Supplier updated successfully' });
   };
 
   return (
