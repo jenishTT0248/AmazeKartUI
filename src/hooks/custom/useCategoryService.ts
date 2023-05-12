@@ -14,20 +14,15 @@ export default function useCategoryService() {
         return response.data;
     }
 
-    async function insertAction(obj: any) {
-        const response: any = await httpPost(URL_CONSTANT.CategoryMaster.Insert, obj);
-        return response.data;
-    }
-
-    async function updateAction(obj: any) {
-        const response: any = await httpPost(URL_CONSTANT.CategoryMaster.Update, obj);
+    async function saveDataAction(obj: any) {
+        const response: any = await httpPost(URL_CONSTANT.CategoryMaster.SaveData, obj);
         return response.data;
     }
 
     async function deleteAction(obj: any) {
-        const response: any = await httpPost(URL_CONSTANT.CategoryMaster.DeleteData, obj);
+        const response: any = await httpGet(URL_CONSTANT.CategoryMaster.DeleteData, obj);
         return response.data;
     }
 
-    return { getAllAction, getByIdAction, insertAction, updateAction, deleteAction };
+    return { getAllAction, getByIdAction, saveDataAction, deleteAction };
 }
