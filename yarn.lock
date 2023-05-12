@@ -11087,6 +11087,8 @@ __metadata:
     stylelint-config-recommended: ^5.0.0
     stylelint-config-styled-components: ^0.1.1
     stylelint-processor-styled-components: ^1.10.0
+    sweetalert2: ^11.7.5
+    sweetalert2-react-content: ^5.0.7
     typeface-lato: ^1.1.13
     typeface-montserrat: ^1.1.13
     typescript: ^4.1.2
@@ -17247,6 +17249,24 @@ __metadata:
   bin:
     svgo: ./bin/svgo
   checksum: 28a5680a61245eb4a1603bc03459095bb01ad5ebd23e95882d886c3c81752313c0a9a9fe48dd0bcbb9a27c52e11c603640df952971573b2b550d9e15a9ee6116
+  languageName: node
+  linkType: hard
+
+"sweetalert2-react-content@npm:^5.0.7":
+  version: 5.0.7
+  resolution: "sweetalert2-react-content@npm:5.0.7"
+  peerDependencies:
+    react: ^18.0.0
+    react-dom: ^18.0.0
+    sweetalert2: ^11.0.0
+  checksum: 383eb9dd6d16b6331c1bb6633e507323b3606b79832c8b5eb7871641d547228d719a914a23ddf7e0105ae7dd07663909ce03f64d1484e6c039bd6bbd4325bc86
+  languageName: node
+  linkType: hard
+
+"sweetalert2@npm:^11.7.5":
+  version: 11.7.5
+  resolution: "sweetalert2@npm:11.7.5"
+  checksum: c1c1a4a7c86d3ee5c1b063549c25689c6fd30077a5565a715e28608ce3bb1ad8eab0b707b714535682321b5c7339baf997182d99c1547e90b6a353ded39a7845
   languageName: node
   linkType: hard
 

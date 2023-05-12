@@ -36,6 +36,18 @@ export const sidebarNavigation: SidebarNavigationItem[] = [
     icon: <DashboardOutlined />,
   },
   {
+    title: 'common.masters',
+    key: 'masters',
+    icon: <HomeOutlined />,
+    children: [
+      {
+        title: 'common._masters.category',
+        key: 'category',
+        url: '/masters/category',
+      },
+    ],
+  },
+  {
     title: 'common.apps',
     key: 'apps',
     icon: <HomeOutlined />,
