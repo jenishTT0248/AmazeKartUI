@@ -5,8 +5,7 @@ export const URL_CONSTANT = {
         getAll: ROOT_URL + "/api/Category/GetAll",
         GetById: ROOT_URL + "/api/Category/GetById",
         DeleteData: ROOT_URL + "/api/Category/DeleteData",
-        Insert: ROOT_URL + "/api/Category/Insert",
-        Update: ROOT_URL + "/api/Category/Update",
+        SaveData: ROOT_URL + "/api/Category/SaveData"
     }
 
 

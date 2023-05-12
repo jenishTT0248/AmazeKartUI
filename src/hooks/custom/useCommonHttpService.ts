@@ -11,10 +11,10 @@ export default function useCommonHttpService() {
 
             const options = {
                 method: 'get',
-                // headers: {
-                //     'content-type': 'application/json; charset=UTF-8',
-                //     'Authorization': `Bearer ${accessToken}` //need to change the auth token
-                // }
+                headers: {
+                    'content-type': 'application/json; charset=UTF-8'
+                   // 'Authorization': `Bearer ${accessToken}` //need to change the auth token
+                }
             };
             if (parameters && typeof (parameters) === "object") {
                 Object.keys(parameters).forEach((property) => {
@@ -43,10 +43,10 @@ export default function useCommonHttpService() {
         return new Promise((resolve, reject) => {
             const options = {
                 method: 'post',
-                // headers: {
-                //     'content-type': 'application/json; charset=UTF-8',
-                //     'Authorization': `Bearer ${accessToken}` //need to change the auth token
-                // },
+                headers: {
+                    'content-type': 'application/json; charset=UTF-8'
+                   // 'Authorization': `Bearer ${accessToken}` //need to change the auth token
+                },
                 body: JSON.stringify(requestBody)
             }
 

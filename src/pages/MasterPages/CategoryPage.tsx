@@ -23,6 +23,7 @@ import { BaseCard } from '@app/components/common/BaseCard/BaseCard';
 import { BaseButtonsForm } from '@app/components/common/forms/BaseButtonsForm/BaseButtonsForm';
 import { BaseInput } from '@app/components/common/inputs/BaseInput/BaseInput';
 import { BaseForm } from '@app/components/common/forms/BaseForm/BaseForm';
+import Swal from "sweetalert2";
 
 const initialPagination: Pagination = {
   current: 1,
@@ -32,130 +33,62 @@ const initialPagination: Pagination = {
 
 const CategoryPage: React.FC = () => {
 
+  const [isBasicModalOpen, setIsBasicModalOpen] = useState<boolean>(false);
   const [loading, setLoading] = useState(false);
   const [categoryId, setCategoryId] = useState(0);
-  const [categories, setCategories] = useState<any>([]);
-  const [tableData, setTableData] = useState<{ data: BasicTableRow[]; pagination: Pagination; loading: boolean }>({
+  const [tableData, setTableData] = useState<{ data: BasicTableRow[]; loading: boolean }>({
     data: [],
-    pagination: initialPagination,
     loading: false,
   });
 
-  const layout = {
-    labelCol: { span: 24 },
-    wrapperCol: { span: 24 },
-  };
-
-  const { getAllAction, getByIdAction, deleteAction, insertAction, updateAction } = useCategoryService();
+  const { getAllAction, getByIdAction, deleteAction, saveDataAction } = useCategoryService();
 
   useEffect(() => {
     getAll();
   }, []);
 
-  const getAll = async () => {
-    let data = await getAllAction();
-    setCategories(data);
-    setTableData({ data: data, pagination: initialPagination, loading: false });
-  }
-
-
-  const [isBasicModalOpen, setIsBasicModalOpen] = useState<boolean>(false);
-
-
-
-  const { t } = useTranslation();
-  const { isMounted } = useMounted();
-
-  // const fetch = useCallback(
-  //   (pagination: Pagination) => {
-  //     setTableData((tableData) => ({ ...tableData, loading: true }));
-  //     getBasicTableData(pagination).then((res) => {
-  //       if (isMounted.current) {
-  //         setTableData({ data: res.data, pagination: res.pagination, loading: false });
-  //       }
-  //     });
-  //   },
-  //   [isMounted],
-  // );
-
-  // useEffect(() => {
-  //   fetch(initialPagination);
-  // }, [fetch]);
-
-  const handleTableChange = (pagination: Pagination) => {
-    //fetch(pagination);
-  };
-
-  const handleEditRow = async (record: any) => {
-    debugger
-    setCategoryId(record.Id);
-    var category = await getByIdAction({ categoryId: record.Id });
-    form.setFieldsValue({ 'categoryName': category.CategoryName, 'description': category.Description });
+  const addCategory = () => {
     setIsBasicModalOpen(true);
   }
 
-  const handleDeleteRow = async (categoryId: number) => {
-    debugger;
+  const getAll = async () => {
+    let data = await getAllAction();
+    setTableData({ data: data, loading: false });
+  }
+
+  const handleEditRow = async (record: any) => {
     setLoading(true);
-    await deleteAction({ categoryId: categoryId });
+    setCategoryId(record.Id);
+    var category = await getByIdAction({ categoryId: record.Id });
+    form.setFieldsValue({ 'categoryName': category.CategoryName, 'description': category.Description });
     setLoading(false);
+    setIsBasicModalOpen(true);
+  }
+
+  const handleDeleteRow = async (id: number) => {
+    Swal.fire({
+      html: 'Are you sure you want to delete this Category?',
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonText: "Yes",
+      cancelButtonText: "No",
+      reverseButtons: true,
+    }).then(async (result: any) => {
+      if (result.isConfirmed) {
+        setLoading(true);
+        await deleteAction({ categoryId: id });
+        {/* notificationController.info({ message: t('tables.inviteMessage', { name: record.name }) }) */ }
+        getAll();
+        setLoading(false);
+      }
+    });
   };
 
   const columns: ColumnsType<BasicTableRow> = [
-    // {
-    //   title: t('common.name'),
-    //   dataIndex: 'name',
-    //   render: (text: string) => <span>{text}</span>,
-    //   filterMode: 'tree',
-    //   filterSearch: true,
-    //   filters: [
-    //     {
-    //       text: t('common.firstName'),
-    //       value: 'firstName',
-    //       children: [
-    //         {
-    //           text: 'Joe',
-    //           value: 'Joe',
-    //         },
-    //         {
-    //           text: 'Pavel',
-    //           value: 'Pavel',
-    //         },
-    //         {
-    //           text: 'Jim',
-    //           value: 'Jim',
-    //         },
-    //         {
-    //           text: 'Josh',
-    //           value: 'Josh',
-    //         },
-    //       ],
-    //     },
-    //     {
-    //       text: t('common.lastName'),
-    //       value: 'lastName',
-    //       children: [
-    //         {
-    //           text: 'Green',
-    //           value: 'Green',
-    //         },
-    //         {
-    //           text: 'Black',
-    //           value: 'Black',
-    //         },
-    //         {
-    //           text: 'Brown',
-    //           value: 'Brown',
-    //         },
-    //       ],
-    //     },
-    //   ],
-    //   onFilter: (value: string | number | boolean, record: BasicTableRow) => record.name.includes(value.toString()),
-    // },
     {
       title: 'Category Name',
       dataIndex: 'CategoryName',
-      sorter: (a: BasicTableRow, b: BasicTableRow) => a.age - b.age,
+      sorter: (a: any, b: any) => a.CategoryName - b.CategoryName,
       showSorterTooltip: false,
     },
     {
@@ -163,7 +96,7 @@ const CategoryPage: React.FC = () => {
       dataIndex: 'Description',
     },
     {
-      title: t('tables.actions'),
+      title: 'Actions',
       dataIndex: 'actions',
       width: '15%',
       render: (text: string, record: any) => {
@@ -174,11 +107,10 @@ const CategoryPage: React.FC = () => {
               type="ghost"
               onClick={() => handleEditRow(record)}
             >
-              {/* notificationController.info({ message: t('tables.inviteMessage', { name: record.name }) }) */}
-              <EditOutlined key={`Delete_${record.Id}`} />
+              <EditOutlined key={`Edit_${record.Id}`} />
             </BaseButton>
 
-            <BaseButton type="default" danger onClick={() => handleDeleteRow(record.key)}>
+            <BaseButton type="default" danger onClick={() => handleDeleteRow(record.Id)}>
               <DeleteOutlined key={`Delete_${record.Id}`} />
             </BaseButton>
 
@@ -193,19 +125,13 @@ const CategoryPage: React.FC = () => {
 
   const onFinish = async (values: any) => {
     setLoading(true);
-    console.log(values);
     let reqObj: any = {
       CategoryName: values.categoryName,
-      Description: values.description
+      Description: values.description ?? '',
+      Id: categoryId
     };
 
-    if (categoryId > 0) {
-      reqObj.Id = categoryId;
-      await insertAction(reqObj);
-    }
-    else {
-      await updateAction(reqObj);
-    }
+    await saveDataAction(reqObj);
 
     await getAll();
     setLoading(false);
@@ -214,10 +140,6 @@ const CategoryPage: React.FC = () => {
     setCategoryId(0);
     setIsBasicModalOpen(false);
   };
-
-  const addCategory = () => {
-    setIsBasicModalOpen(true);
-  }
 
   return (
     <>
@@ -236,11 +158,11 @@ const CategoryPage: React.FC = () => {
             <BaseTable
               columns={columns}
               dataSource={tableData.data}
-              pagination={tableData.pagination}
+              pagination={initialPagination}
               loading={tableData.loading}
-              onChange={handleTableChange}
               scroll={{ x: 800 }}
               bordered
+              rowKey='Id'
             />
           </BaseCol>
         </BaseRow>
@@ -249,6 +171,7 @@ const CategoryPage: React.FC = () => {
 
 
       <BaseModal title="Add Category" open={isBasicModalOpen}
+        okText='Submit'
         onOk={form.submit}
         onCancel={() => setIsBasicModalOpen(false)}>
         <BaseForm form={form} layout="vertical" name="addCategoryForm"
