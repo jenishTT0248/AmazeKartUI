@@ -75,11 +75,9 @@ const CategoryPage: React.FC = () => {
       if (result.isConfirmed) {
         setLoading(true);
         await deleteAction({ categoryId: id });
-        {
-          /* notificationController.info({ message: t('tables.inviteMessage', { name: record.name }) }) */
-        }
-        getAll();
+        await getAll();
         setLoading(false);
+        notificationController.success({ message: 'Category deleted successfully' });
       }
     });
   };
@@ -133,6 +131,9 @@ const CategoryPage: React.FC = () => {
     form.resetFields();
     setCategoryId(0);
     setIsBasicModalOpen(false);
+
+    if (categoryId === 0) notificationController.success({ message: 'Category created successfully' });
+    else notificationController.success({ message: 'Category updated successfully' });
   };
 
   return (
