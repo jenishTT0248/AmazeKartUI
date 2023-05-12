@@ -115,7 +115,8 @@
   "common": {
     "masters": "Masters",
     "_masters":{
-      "category":"Category"
+      "category":"Category",
+      "supplier": "Supplier"
     },
     "address": "Address",
     "advancedForms": "Advanced Forms",

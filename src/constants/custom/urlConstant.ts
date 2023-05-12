@@ -11,7 +11,6 @@ export const URL_CONSTANT = {
     getAll: ROOT_URL + '/api/Supplier/GetAll',
     GetById: ROOT_URL + '/api/Supplier/GetById',
     DeleteData: ROOT_URL + '/api/Supplier/DeleteData',
-    Insert: ROOT_URL + '/api/Supplier/SaveData',
-    Update: ROOT_URL + '/api/Supplier/SaveData',
+    SaveData: ROOT_URL + '/api/Supplier/SaveData',
   },
 };

@@ -44,6 +44,11 @@ export const sidebarNavigation: SidebarNavigationItem[] = [
         key: 'category',
         url: '/masters/category',
       },
+      {
+        title: 'common._masters.supplier',
+        key: 'supplier',
+        url: '/masters/supplier',
+      },
     ],
   },
   {
