@@ -37,6 +37,11 @@ export const sidebarNavigation: SidebarNavigationItem[] = [
         key: 'supplier',
         url: '/masters/supplier',
       },
+      {
+        title: 'common._masters.paymentDetails',
+        key: 'paymentdetails',
+        url: '/masters/paymentdetails',
+      },
     ],
   },
   // {

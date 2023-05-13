@@ -21,5 +21,9 @@ export const URL_CONSTANT = {
 
   Login:{
     ValidateUser:  ROOT_URL + '/api/Login/ValidateUser',
-  }
+  },
+
+  PaymentDetailMaster: {
+    getAll: ROOT_URL + '/api/PaymentDetail/GetAll',
+  },
 };
