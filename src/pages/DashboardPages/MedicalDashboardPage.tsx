@@ -26,14 +26,14 @@ const MedicalDashboardPage: React.FC = () => {
   const desktopLayout = (
     <BaseRow>
       <S.LeftSideCol xl={16} xxl={17}>
-        <BaseRow gutter={[30, 30]}>
-          <BaseCol span={24}>
+        <BaseRow gutter={[50, 50]}>
+          {/* <BaseCol span={24}>
             <BaseRow gutter={[30, 30]}>
               <StatisticsCards />
             </BaseRow>
-          </BaseCol>
+          </BaseCol> */}
 
-          <BaseCol id="map" span={24}>
+          {/* <BaseCol id="map" span={24}>
             <MapCard />
           </BaseCol>
 
@@ -43,11 +43,11 @@ const MedicalDashboardPage: React.FC = () => {
 
           <BaseCol id="treatment-plan" xl={24}>
             <TreatmentCard />
-          </BaseCol>
+          </BaseCol> */}
 
-          <BaseCol id="covid" xl={24}>
+          {/* <BaseCol id="covid" xl={24}>
             <CovidCard />
-          </BaseCol>
+          </BaseCol> */}
 
           <BaseCol id="activity" xl={24} xxl={12}>
             <ActivityCard />
@@ -57,17 +57,17 @@ const MedicalDashboardPage: React.FC = () => {
             <HealthCard />
           </BaseCol>
 
-          <BaseCol id="favorite-doctors" xl={24}>
+          {/* <BaseCol id="favorite-doctors" xl={24}>
             <FavoritesDoctorsCard />
-          </BaseCol>
-
+          </BaseCol> */}
+{/* 
           <BaseCol id="news" span={24}>
             <NewsCard />
-          </BaseCol>
+          </BaseCol> */}
         </BaseRow>
         <References />
       </S.LeftSideCol>
-
+{/* 
       <S.RightSideCol xl={8} xxl={7}>
         <div id="blood-screening">
           <BloodScreeningCard />
@@ -76,7 +76,7 @@ const MedicalDashboardPage: React.FC = () => {
         <S.ScrollWrapper id="patient-timeline">
           <PatientResultsCard />
         </S.ScrollWrapper>
-      </S.RightSideCol>
+      </S.RightSideCol> */}
     </BaseRow>
   );
 
@@ -90,7 +90,7 @@ const MedicalDashboardPage: React.FC = () => {
         </BaseCol>
       )}
 
-      <BaseCol id="latest-screenings" xs={24} md={12} order={(isTablet && 5) || 0}>
+      {/* <BaseCol id="latest-screenings" xs={24} md={12} order={(isTablet && 5) || 0}>
         <ScreeningsCard />
       </BaseCol>
 
@@ -108,9 +108,9 @@ const MedicalDashboardPage: React.FC = () => {
 
       <BaseCol id="patient-timeline" xs={24} md={12} order={(isTablet && 11) || 0}>
         <PatientResultsCard />
-      </BaseCol>
+      </BaseCol> */}
 
-      <BaseCol id="blood-screening" xs={24} md={12} order={(isTablet && 6) || 0}>
+      {/* <BaseCol id="blood-screening" xs={24} md={12} order={(isTablet && 6) || 0}>
         <BloodScreeningCard />
       </BaseCol>
 
@@ -124,7 +124,7 @@ const MedicalDashboardPage: React.FC = () => {
 
       <BaseCol id="news" xs={24} md={24} order={(isTablet && 14) || 0}>
         <NewsCard />
-      </BaseCol>
+      </BaseCol> */}
     </BaseRow>
   );
 

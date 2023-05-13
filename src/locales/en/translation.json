@@ -121,8 +121,7 @@
       "customer":"Customer"
     },
     "order": "Order",
-
-
+    "analytics": "Analytics",
     "address": "Address",
     "advancedForms": "Advanced Forms",
     "age": "Age",
@@ -246,7 +245,7 @@
   },
   "medical-dashboard": {
     "activity": {
-      "kcalBurned": "kcal burned on",
+      "kcalBurned": "USD earned on",
       "title": "Activity"
     },
     "bloodScreening": {

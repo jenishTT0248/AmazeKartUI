@@ -186,6 +186,12 @@ export const sidebarNavigation: SidebarNavigationItem[] = [
       },
     ],
   },
+  {
+    title: 'common.analytics',
+    key: 'analytics',
+    icon: <DashboardOutlined />,
+    url: '/medical-dashboard',    
+  },
   // {
   //   title: 'common.ui',
   //   key: 'ui',
