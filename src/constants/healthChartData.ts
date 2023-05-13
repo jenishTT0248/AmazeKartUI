@@ -7,22 +7,22 @@ export interface HealthFactor {
 export const healthChartData: HealthFactor[] = [
   {
     value: 50,
-    name: 'medical-dashboard.health.lifestyle.title',
-    description: 'medical-dashboard.health.lifestyle.description',
+    name: 'NFT',
+    description: 'Non Fungible Token',
   },
   {
     value: 20,
-    name: 'medical-dashboard.health.ecology.title',
+    name: 'Electronics',
     description: 'medical-dashboard.health.ecology.description',
   },
   {
     value: 20,
-    name: 'medical-dashboard.health.genetics.title',
+    name: 'Groccery',
     description: 'medical-dashboard.health.genetics.description',
   },
   {
     value: 10,
-    name: 'medical-dashboard.health.medicine.title',
+    name: 'Art & Lifestyle',
     description: 'medical-dashboard.health.medicine.description',
   },
 ];

@@ -11,7 +11,7 @@ export const ActivityCard: React.FC = () => {
   const { t } = useTranslation();
 
   return (
-    <ActivityCardStyled id="activity" title={t('medical-dashboard.activity.title')} padding={0}>
+    <ActivityCardStyled id="activity" title={"Daily Sale"} padding={0}>
       <ActivityChart data={data} />
     </ActivityCardStyled>
   );

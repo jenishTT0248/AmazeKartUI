@@ -122,8 +122,7 @@
       "paymentDetails":"Payment Details"
     },
     "order": "Order",
-
-
+    "analytics": "Analytics",
     "address": "Address",
     "advancedForms": "Advanced Forms",
     "age": "Age",
@@ -247,7 +246,7 @@
   },
   "medical-dashboard": {
     "activity": {
-      "kcalBurned": "kcal burned on",
+      "kcalBurned": "USD earned on",
       "title": "Activity"
     },
     "bloodScreening": {
@@ -288,7 +287,7 @@
         "description": "Relationship between health insurance (or lack of insurance), use of medical care and health outcomes for specific conditions and types of services, and with overall health status and mortality.",
         "title": "Medicine"
       },
-      "title": "Health"
+      "title": "Product"
     },
     "latestScreenings": {
       "friends": "Friends",

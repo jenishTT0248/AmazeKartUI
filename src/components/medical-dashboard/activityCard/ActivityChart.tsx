@@ -62,7 +62,7 @@ export const ActivityChart: React.FC<ActivityChartProps> = ({ data }) => {
       type: 'value',
       min: 1500,
       axisLabel: {
-        formatter: '{value} kcal',
+        formatter: '{value} USD',
         color: themeObject[theme].textLight,
         fontWeight: 500,
         fontSize: 14,

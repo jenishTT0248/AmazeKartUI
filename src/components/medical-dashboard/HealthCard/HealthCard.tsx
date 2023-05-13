@@ -16,7 +16,7 @@ export const HealthCard: React.FC = () => {
   const legendData = chartData.map((item) => ({ ...item, value: `${item.value}%` }));
 
   return (
-    <BaseCard title={t('medical-dashboard.health.title')} padding={'0 1.25rem 1.875rem'}>
+    <BaseCard title={'Overall Sale'} padding={'0 1.25rem 1.875rem'}>
       <PieChartCustomLegend
         name={t('medical-dashboard.health.title')}
         chartData={chartData}
