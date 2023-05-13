@@ -10,32 +10,35 @@ import { ReactComponent as GoogleIcon } from '@app/assets/icons/google.svg';
 import * as S from './LoginForm.styles';
 import * as Auth from '@app/components/layouts/AuthLayout/AuthLayout.styles';
 
+import useLoginService from '../../../hooks/custom/useLoginService';
+import { persistUser, persistToken } from '@app/services/localStorage.service';
+
 interface LoginFormData {
   email: string;
   password: string;
 }
 
 export const initValues: LoginFormData = {
-  email: 'hello@altence.com',
-  password: 'some-test-pass',
+  email: 'ajay.vishvakarma@triveniglobalsoft.com',
+  password: 'triveni@123',
 };
 
 export const LoginForm: React.FC = () => {
+
+  const { validateUserAction } = useLoginService();
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
   const { t } = useTranslation();
 
   const [isLoading, setLoading] = useState(false);
 
-  const handleSubmit = (values: LoginFormData) => {
+  const handleSubmit = async (values: LoginFormData) => {
     setLoading(true);
-    dispatch(doLogin(values))
-      .unwrap()
-      .then(() => navigate('/'))
-      .catch((err) => {
-        notificationController.error({ message: err.message });
-        setLoading(false);
-      });
+    var response = await validateUserAction({ EmailId: values.email, Password: values.password });
+    persistToken(response.accessToken);
+    persistUser(response.userDetails);
+
+    navigate('/');
   };
 
   return (
@@ -95,12 +98,12 @@ export const LoginForm: React.FC = () => {
           </Auth.SocialButton>
         </BaseForm.Item>
         <Auth.FooterWrapper>
-          <Auth.Text>
+          {/* <Auth.Text>
             {t('login.noAccount')}{' '}
             <Link to="/auth/sign-up">
               <Auth.LinkText>{t('common.here')}</Auth.LinkText>
             </Link>
-          </Auth.Text>
+          </Auth.Text> */}
         </Auth.FooterWrapper>
       </BaseForm>
     </Auth.FormWrapper>
