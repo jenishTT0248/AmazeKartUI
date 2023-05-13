@@ -29,7 +29,7 @@ export default function useCommonHttpService() {
                     if (!response.ok) {
                         // get error message from body or default to response statusText
                         const error = (data && data.message) || response.statusText;
-                        navigate('/error', { state: { status: response.status } });
+                        navigate('/server-error', { state: { status: response.status } });
                         reject(error);
                     } else {
                         resolve(data);
@@ -59,7 +59,7 @@ export default function useCommonHttpService() {
                         // get error message from body or default to response statusText
                         const error = (data && data.message) || response.statusText;
                         reject(error);
-                        navigate('/error', { state: { status: response.status } });
+                        navigate('/server-error', { state: { status: response.status } });
                     } else {
                         resolve(data);
                     }
@@ -90,7 +90,7 @@ export default function useCommonHttpService() {
     //                     // get error message from body or default to response statusText
     //                     const error = (data && data.Message) || response.statusText;
     //                     reject(error);
-    //                     navigate('/error', { state: { status: response.status } });
+    //                     navigate('/server-error', { state: { status: response.status } });
     //                 } else {
     //                     resolve(data);
     //                 }
@@ -120,7 +120,7 @@ export default function useCommonHttpService() {
     //                     // get error message from body or default to response statusText
     //                     const error = (data && data.message) || response.statusText;
     //                     reject(error);
-    //                     navigate('/error', { state: { status: response.status } });
+    //                     navigate('/server-error', { state: { status: response.status } });
     //                 } else {
     //                     resolve(data);
     //                 }

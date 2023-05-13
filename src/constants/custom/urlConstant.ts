@@ -13,4 +13,13 @@ export const URL_CONSTANT = {
     DeleteData: ROOT_URL + '/api/Supplier/DeleteData',
     SaveData: ROOT_URL + '/api/Supplier/SaveData',
   },
+
+  Order: {
+    GetAll: ROOT_URL + '/api/Order/GetAll',
+    DeleteData: ROOT_URL + '/api/Order/DeleteData',
+  },
+
+  Login:{
+    ValidateUser:  ROOT_URL + '/api/Login/ValidateUser',
+  }
 };

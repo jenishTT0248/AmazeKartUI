@@ -113,11 +113,15 @@
     "unchecked": "Unchecked"
   },
   "common": {
+    
     "masters": "Masters",
     "_masters":{
       "category":"Category",
       "supplier": "Supplier"
     },
+    "order": "Order",
+
+
     "address": "Address",
     "advancedForms": "Advanced Forms",
     "age": "Age",

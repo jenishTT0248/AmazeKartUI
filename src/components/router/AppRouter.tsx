@@ -19,6 +19,7 @@ import MedicalDashboardPage from '@app/pages/DashboardPages/MedicalDashboardPage
 
 import CategoryPage from '@app/pages/MasterPages/CategoryPage';
 import SupplierPage from '@app/pages/MasterPages/SupplierPage';
+
 const CategoryMaster = withLoading(CategoryPage);
 const SupplierMaster = withLoading(SupplierPage);
 
@@ -136,10 +137,13 @@ export const AppRouter: React.FC = () => {
         <Route path={NFT_DASHBOARD_PATH} element={protectedLayout}>
           <Route index element={<NftDashboard />} />
           <Route path={MEDICAL_DASHBOARD_PATH} element={<MedicalDashboard />} />
+          
+          
           <Route path="masters">
             <Route path="category" element={<CategoryMaster />} />
             <Route path="supplier" element={<SupplierMaster />} />
           </Route>
+          
           <Route path="apps">
             <Route path="feed" element={<NewsFeed />} />
           </Route>
