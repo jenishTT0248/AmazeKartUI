@@ -118,7 +118,8 @@
     "_masters":{
       "category":"Category",
       "supplier": "Supplier",
-      "customer":"Customer"
+      "customer":"Customer",
+      "paymentDetails":"Payment Details"
     },
     "order": "Order",
     "analytics": "Analytics",
