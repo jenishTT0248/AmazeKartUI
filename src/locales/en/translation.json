@@ -117,7 +117,8 @@
     "masters": "Masters",
     "_masters":{
       "category":"Category",
-      "supplier": "Supplier"
+      "supplier": "Supplier",
+      "customer":"Customer"
     },
     "order": "Order",
 

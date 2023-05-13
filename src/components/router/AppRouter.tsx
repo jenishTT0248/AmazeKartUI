@@ -18,10 +18,12 @@ import NftDashboardPage from '@app/pages/DashboardPages/NftDashboardPage';
 import MedicalDashboardPage from '@app/pages/DashboardPages/MedicalDashboardPage';
 
 import CategoryPage from '@app/pages/MasterPages/CategoryPage';
+import CustomerPage from '@app/pages/MasterPages/CustomerPage';
 import SupplierPage from '@app/pages/MasterPages/SupplierPage';
 
 const CategoryMaster = withLoading(CategoryPage);
 const SupplierMaster = withLoading(SupplierPage);
+const CustomerMaster = withLoading(CustomerPage);
 
 const NewsFeedPage = React.lazy(() => import('@app/pages/NewsFeedPage'));
 const DataTablesPage = React.lazy(() => import('@app/pages/DataTablesPage'));
@@ -137,13 +139,13 @@ export const AppRouter: React.FC = () => {
         <Route path={NFT_DASHBOARD_PATH} element={protectedLayout}>
           <Route index element={<NftDashboard />} />
           <Route path={MEDICAL_DASHBOARD_PATH} element={<MedicalDashboard />} />
-          
-          
+
           <Route path="masters">
             <Route path="category" element={<CategoryMaster />} />
+            <Route path="customer" element={<CustomerMaster />} />
             <Route path="supplier" element={<SupplierMaster />} />
           </Route>
-          
+
           <Route path="apps">
             <Route path="feed" element={<NewsFeed />} />
           </Route>

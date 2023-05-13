@@ -32,6 +32,11 @@ export const sidebarNavigation: SidebarNavigationItem[] = [
         url: '/masters/category',
       },
       {
+        title: 'common._masters.customer',
+        key: 'customer',
+        url: '/masters/customer',
+      },
+      {
         title: 'common._masters.supplier',
         key: 'supplier',
         url: '/masters/supplier',
@@ -44,7 +49,6 @@ export const sidebarNavigation: SidebarNavigationItem[] = [
   //   url: 'order',
   //   icon: <NftIcon />,
   // },
-
 
   // {
   //   title: 'common.nft-dashboard',
@@ -59,7 +63,7 @@ export const sidebarNavigation: SidebarNavigationItem[] = [
   //   url: '/medical-dashboard',
   //   icon: <DashboardOutlined />,
   // },
-  
+
   // {
   //   title: 'common.apps',
   //   key: 'apps',
