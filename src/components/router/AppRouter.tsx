@@ -20,10 +20,13 @@ import MedicalDashboardPage from '@app/pages/DashboardPages/MedicalDashboardPage
 import CategoryPage from '@app/pages/MasterPages/CategoryPage';
 import CustomerPage from '@app/pages/MasterPages/CustomerPage';
 import SupplierPage from '@app/pages/MasterPages/SupplierPage';
+import PaymentDetailsPage from '@app/pages/MasterPages/PaymentDetailPage';
 
 const CategoryMaster = withLoading(CategoryPage);
 const SupplierMaster = withLoading(SupplierPage);
 const CustomerMaster = withLoading(CustomerPage);
+const PaymentDetails = withLoading(PaymentDetailsPage);
+
 
 const NewsFeedPage = React.lazy(() => import('@app/pages/NewsFeedPage'));
 const DataTablesPage = React.lazy(() => import('@app/pages/DataTablesPage'));
@@ -144,6 +147,7 @@ export const AppRouter: React.FC = () => {
             <Route path="category" element={<CategoryMaster />} />
             <Route path="customer" element={<CustomerMaster />} />
             <Route path="supplier" element={<SupplierMaster />} />
+            <Route path="paymentdetails" element={<PaymentDetails />} />
           </Route>
 
           <Route path="apps">

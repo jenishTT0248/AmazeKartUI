@@ -9,6 +9,7 @@ import {
   TableOutlined,
   UserOutlined,
   BlockOutlined,
+  CreditCardOutlined,
 } from '@ant-design/icons';
 import { ReactComponent as NftIcon } from '@app/assets/icons/nft-icon.svg';
 
@@ -40,6 +41,11 @@ export const sidebarNavigation: SidebarNavigationItem[] = [
         title: 'common._masters.supplier',
         key: 'supplier',
         url: '/masters/supplier',
+      },
+      {
+        title: 'common._masters.paymentDetails',
+        key: 'paymentdetails',
+        url: '/masters/paymentdetails',
       },
     ],
   },
