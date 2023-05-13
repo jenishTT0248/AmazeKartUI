@@ -118,7 +118,7 @@
     "_masters":{
       "category":"Category",
       "supplier": "Supplier",
-      "paymentDetails":"payment Details"
+      "paymentDetails":"Payment Details"
     },
     "order": "Order",
 
